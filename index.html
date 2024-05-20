@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crud Application</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h2 class="mt-5 mb-5"> CRUD Application </h2>
+        <div class="mb-5">
+            <div class="row">
+                <div class="from-group col-md-6 mb-3">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" class="form-control" id="name" placeholder="Entrer Name"/>
+                </div>
+            </div>
+        </div>
+        <div class="mb-5">
+            <div class="row">
+                <div class="from-group col-md-6 mb-3">
+                    <label for="age">Age</label>
+                    <input type="number" name="age" class="form-control" id="age" placeholder="Entrer Age"/>
+                </div>
+            </div>
+        </div>
+        <div class="mb-5">
+            <div class="row">
+                <div class="from-group col-md-6 mb-3">
+                    <label for="address">Address</label>
+                    <input type="text" name="address" class="form-control" id="address" placeholder="Entrer Address"/>
+                </div>
+            </div>
+        </div>
+        <div class="mb-5">
+            <div class="row">
+                <div class="from-group col-md-6 mb-3">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" class="form-control" id="email" placeholder="Entrer Email"/>
+                </div>
+                <div class="col-lg-12 mt-5">
+                    <button class="btn btn-success" id="Submit" onclick="AddData()">Add Data</button>
+                    <button class="btn btn-primary" id="update">Update</button>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row mt-5">
+            <div class="col-12">
+                <table class="table table-bordered" id="crudTable">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Age</th>
+                            <th>Address</th>
+                            <th>Email</th>
+                            <th>Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+  const inputs = document.querySelectorAll('.form-control');
+  inputs.forEach((input, index) => {
+    input.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        const nextInput = inputs[index + 1];
+        if (nextInput) {
+          nextInput.focus();
+        }
+      }
+    });
+  });
+});
+
+    </script>
+    <script src="js/script.js"></script>
+</body>
+</html>
